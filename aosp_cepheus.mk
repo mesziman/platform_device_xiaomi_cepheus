@@ -16,7 +16,7 @@
 $(call inherit-product, device/xiaomi/cepheus/msmnile.mk)
 
 # Inherit some common PixelExperience stuff.
-$(call inherit-product, vendor/aosp/config/common.mk)
+$(call inherit-product, vendor/aosp/common.mk)
 
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_GAPPS_ARCH := arm64

@@ -125,45 +125,39 @@ case "$target" in
     echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/enable
 
     # Setting b.L scheduler parameters
-    echo 95 95 > /proc/sys/kernel/sched_upmigrate
-    echo 85 85 > /proc/sys/kernel/sched_downmigrate
-    echo 100 > /proc/sys/kernel/sched_group_upmigrate
-    echo 10 > /proc/sys/kernel/sched_group_downmigrate
-    echo 1 > /proc/sys/kernel/sched_walt_rotate_big_tasks
 
+    echo ENERGY_AWARE > /sys/kernel/debug/sched_features
+    echo 134217728 > /sys/block/dm-7/queue/discard_max_bytes
     # cpuset parameters
+    echo 0-7 > /dev/cpuset/top-app/cpus
+    echo 0-3,5-6 > /dev/cpuset/foreground/cpus
     echo 0-1 > /dev/cpuset/background/cpus
-    echo 0-2 > /dev/cpuset/system-background/cpus
+    echo 0-3 > /dev/cpuset/system-background/cpus
     echo 0-3 > /dev/cpuset/restricted/cpus
-
+    echo 1 > /dev/stune/foreground/schedtune.prefer_idle
+    echo 10 > /dev/stune/top-app/schedtune.boost
+    echo 1 > /dev/stune/top-app/schedtune.prefer_idle
     # Setup final blkio
     # value for group_idle is us
     echo 1000 > /dev/blkio/blkio.weight
-    echo 100 > /dev/blkio/background/blkio.weight
+    echo 10 > /dev/blkio/background/blkio.weight
     echo 2000 > /dev/blkio/blkio.group_idle
     echo 0 > /dev/blkio/background/blkio.group_idle
 
     # Configure governor settings for silver cluster
     echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
-    echo 1209600 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq
-    echo 576000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-    echo 1 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/pl
+    echo 500 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
+    echo 20000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
 
     # Configure governor settings for gold cluster
     echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
-    echo 1612800 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_freq
-    echo 1 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/pl
+    echo 500 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
+    echo 20000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
 
     # Configure governor settings for gold+ cluster
     echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
-    echo 1612800 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/hispeed_freq
-    echo 1 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/pl
+    echo 500 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
+    echo 20000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
 
     # Configure input boost settings
     echo "0:1324800" > /sys/module/cpu_boost/parameters/input_boost_freq
