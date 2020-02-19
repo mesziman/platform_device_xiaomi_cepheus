@@ -22,6 +22,10 @@ $(call inherit-product-if-exists, vendor/xiaomi/sm8150-common/sm8150-common-vend
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# Preopt SystemUI
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    SystemUI
+
 PRODUCT_COPY_FILES +=  $(LOCAL_PATH)/manifest-qva.xml:$(TARGET_COPY_OUT_ODM)/etc/vintf/manifest.xml
 
 # Hardware
