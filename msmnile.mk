@@ -32,6 +32,10 @@ $(call inherit-product-if-exists, vendor/xiaomi/cepheus/cepheus-vendor.mk)
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# Preopt SystemUI
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    SystemUI
+
 # Hardware
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
