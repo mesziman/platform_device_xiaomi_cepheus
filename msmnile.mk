@@ -329,7 +329,7 @@ PRODUCT_PACKAGES += \
 
 
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.3-service.raphael-libperfmgr
+    android.hardware.power@1.3-service.cepheus-libperfmgr
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/perf/powerhint.json:system/etc/powerhint.json 

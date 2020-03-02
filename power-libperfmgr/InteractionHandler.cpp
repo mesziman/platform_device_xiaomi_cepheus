@@ -16,7 +16,7 @@
 
 //#define LOG_NDEBUG 0
 
-#define LOG_TAG "android.hardware.power@1.3-service.raphael-libperfmgr"
+#define LOG_TAG "android.hardware.power@1.3-service.cepheus-libperfmgr"
 #define ATRACE_TAG (ATRACE_TAG_POWER | ATRACE_TAG_HAL)
 
 #include <fcntl.h>
@@ -35,14 +35,14 @@
 #define MSINSEC 1000L
 #define USINMS 1000000L
 
-InteractionHandler::InteractionHandler(std::shared_ptr<HintManager> const &hint_manager)
+InteractionHandler::InteractionHandler(std::shared_ptr<HintManager> const & hint_manager)
     : mState(INTERACTION_STATE_UNINITIALIZED),
       mWaitMs(100),
       mMinDurationMs(1400),
       mMaxDurationMs(5650),
       mDurationMs(0),
-      mLastTimespec{0, 0},
-      mHintManager(hint_manager) {}
+      mHintManager(hint_manager) {
+}
 
 InteractionHandler::~InteractionHandler() {
     Exit();
@@ -108,20 +108,18 @@ void InteractionHandler::PerfRel() {
 
 long long InteractionHandler::CalcTimespecDiffMs(struct timespec start,
                                                struct timespec end) {
-    long long diff_in_ms = 0;
-    diff_in_ms += (end.tv_sec - start.tv_sec) * MSINSEC;
-    diff_in_ms += (end.tv_nsec - start.tv_nsec) / USINMS;
-    return diff_in_ms;
+    long long diff_in_us = 0;
+    diff_in_us += (end.tv_sec - start.tv_sec) * MSINSEC;
+    diff_in_us += (end.tv_nsec - start.tv_nsec) / USINMS;
+    return diff_in_us;
 }
 
 void InteractionHandler::Acquire(int32_t duration) {
     ATRACE_CALL();
 
     std::lock_guard<std::mutex> lk(mLock);
-    if (mState == INTERACTION_STATE_UNINITIALIZED) {
-        ALOGW("%s: called while uninitialized", __func__);
+    if (mState == INTERACTION_STATE_UNINITIALIZED)
         return;
-    }
 
     int inputDuration = duration + 650;
     int finalDuration;

@@ -15,7 +15,7 @@
  */
 
 #define ATRACE_TAG (ATRACE_TAG_POWER | ATRACE_TAG_HAL)
-#define LOG_TAG "android.hardware.power@1.3-service.raphael-libperfmgr"
+#define LOG_TAG "android.hardware.power@1.3-service.cepheus-libperfmgr"
 
 #include <android-base/file.h>
 #include <android-base/logging.h>
@@ -34,7 +34,7 @@
 #include "display-helper.h"
 #include <linux/input.h>
 
-constexpr char kWakeupEventNode[] = "/dev/input/event3";
+constexpr char kWakeupEventNode[] = "/dev/input/event4";
 constexpr int kWakeupModeOff = 4;
 constexpr int kWakeupModeOn = 5;
 
@@ -62,7 +62,7 @@ constexpr char kPowerHalStateProp[] = "vendor.powerhal.state";
 constexpr char kPowerHalAudioProp[] = "vendor.powerhal.audio";
 constexpr char kPowerHalInitProp[] = "vendor.powerhal.init";
 constexpr char kPowerHalRenderingProp[] = "vendor.powerhal.rendering";
-constexpr char kPowerHalConfigPath[] = "/system/etc/powerhint.json";
+constexpr char kPowerHalConfigPath[] = "/vendor/etc/powerhint.json";
 
 static const std::map<enum CameraStreamingMode, std::string> kCamStreamingHint = {
         {CAMERA_STREAMING_OFF, "CAMERA_STREAMING_OFF"},
