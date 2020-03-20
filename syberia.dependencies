@@ -58,5 +58,10 @@
    "repository" : "packages/resources/devicesettings",
    "target_path": "LineageOS/android_packages_resources_devicesettings",
    "branch"     : "lineage-17.0"
-}
+},
+ {
+   "repository" : "kdrag0n/proton-clang",
+   "target_path": "prebuilts/clang/host/linux-x86/clang-11",
+   "branch"     : "master"
+ }
 ]
