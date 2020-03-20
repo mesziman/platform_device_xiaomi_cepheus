@@ -29,16 +29,12 @@ PRODUCT_MODEL := MI 9
 PRODUCT_MANUFACTURER := Xiaomi
 BUILD_FINGERPRINT := "Xiaomi/cepheus/cepheus:10/QKQ1.190825.002/V11.0.8.0.QFAEUXM:user/release-keys"
 
+SYBERIA_BUILD_TYPE := OFFICIAL
+
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="cepheus-user 10 QKQ1.190825.002 V11.0.8.0 release-keys" \
     PRODUCT_NAME="cepheus" \
     TARGET_DEVICE="cepheus"
 
-ifeq ($(GAPPS_BUILD),true)
-    WITH_GAPPS := true
-    TARGET_GAPPS_ARCH := arm64
-    IS_PHONE := true
-    TARGET_SHIPS_SEPERATE_GAPPS_BUILD := true
-endif
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
