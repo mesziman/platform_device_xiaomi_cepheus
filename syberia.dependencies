@@ -1,0 +1,62 @@
+[
+ {
+   "repository" : "mesziman/kernel_xiaomi_sm8150-2",
+   "target_path": "kernel/xiaomi/cepheus",
+   "branch"     : "derp-riced2"
+ },
+ {
+   "repository" : "mesziman/proprietary_vendor_xiaomi-4",
+   "target_path": "vendor/xiaomi/cepheus",
+   "branch"     : "new20"
+ },
+ {
+   "repository" : "LineageOS/android_vendor_nxp_interfaces_opensource_nfc",
+   "target_path": "vendor/nxp/opensource/interfaces/nfc",
+   "branch"     : "lineage-17.0"
+},
+{
+   "repository" : "mesziman/android_vendor_nxp_opensource_external_libnfc-nci",
+   "target_path": "vendor/nxp/opensource/commonsys/external/libnfc-nci",
+   "branch"     : "lineage-17.0"
+},
+{
+   "repository" : "mesziman/android_vendor_nxp_opensource_frameworks",
+   "target_path": "vendor/nxp/opensource/commonsys/frameworks",
+   "branch"     : "lineage-17.0"
+},
+{
+   "repository" : "mesziman/android_vendor_nxp_opensource_packages_apps_Nfc",
+   "target_path": "vendor/nxp/opensource/commonsys/packages/apps/Nfc",
+   "branch"     : "lineage-17.0"
+},
+{
+   "repository" : "mesziman/android_vendor_nxp_opensource_halimpl",
+   "target_path": "vendor/nxp/opensource/sn100x/halimpl",
+   "branch"     : "lineage-17.0-sn100x"
+},
+{
+   "repository" : "LineageOS/android_vendor_nxp_opensource_hidlimpl",
+   "target_path": "vendor/nxp/opensource/sn100x/hidlimpl",
+   "branch"     : "lineage-17.0-sn100x"
+},
+{
+   "repository" : "hardware/qcom/audio-caf/sm8150",
+   "target_path": "LineageOS/android_hardware_qcom_audio",
+   "branch"     : "lineage-17.1-caf-sm8150"
+},
+{
+   "repository" : "hardware/qcom/display-caf/sm8150",
+   "target_path": "mesziman/hardware_qcom_display-caf_sm8150",
+   "branch"     : "10.0-caf-sm8150"
+},
+{
+   "repository" : "hardware/qcom/media-caf/sm8150",
+   "target_path": "LineageOS/android_hardware_qcom_media",
+   "branch"     : "lineage-17.1-caf-sm8150"
+},
+{
+   "repository" : "packages/resources/devicesettings",
+   "target_path": "LineageOS/android_packages_resources_devicesettings",
+   "branch"     : "lineage-17.0"
+}
+]
