@@ -21,8 +21,10 @@
 
 <!-- Whether device has a notch -->
     <bool name="config_haveNotch">true</bool>
-
+    <!-- Whether device has screen with higher aspect ratio -->
+    <bool name="config_haveHigherAspectRatioScreen">true</bool>
+    
     <!-- Shows the required view for in-display fingerprint -->
-    <bool name="config_needCustomFODView">false</bool>
+    <bool name="config_needCustomFODView">true</bool>
 
 </resources>
